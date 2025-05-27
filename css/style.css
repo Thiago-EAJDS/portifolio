@@ -6,7 +6,8 @@
 }
 
 body {
-    overflow-x: hidden;
+     overflow-x: hidden; 
+    overflow-y: auto;  
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #f0f0f0;
 }
