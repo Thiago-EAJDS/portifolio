@@ -1,17 +1,13 @@
-const username = 'Thiago-EAJDS';
+ const username = 'Thiago-EAJDS';
 
   async function getTotalCommits() {
-    const statNumber = document.querySelector('.stat-number');
     let totalCommits = 0;
 
     try {
       const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
       const repos = await reposResponse.json();
 
-      if (!Array.isArray(repos)) {
-        statNumber.innerText = 'Erro';
-        return;
-      }
+      if (!Array.isArray(repos)) return;
 
       for (const repo of repos) {
         const commitsResponse = await fetch(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`);
@@ -29,11 +25,17 @@ const username = 'Thiago-EAJDS';
         }
       }
 
-      animateNumber(statNumber, totalCommits);
+      const statItems = document.querySelectorAll('.stat-item');
+      statItems.forEach(item => {
+        const label = item.querySelector('.stat-label')?.innerText?.trim();
+        if (label === 'Commits no GitHub') {
+          const numberDiv = item.querySelector('.stat-number');
+          animateNumber(numberDiv, totalCommits);
+        }
+      });
 
     } catch (err) {
-      console.error(err);
-      statNumber.innerText = 'Erro';
+      console.error('Erro ao carregar commits:', err);
     }
   }
 
@@ -51,4 +53,3 @@ const username = 'Thiago-EAJDS';
     }, 20);
   }
 
-  getTotalCommits();
