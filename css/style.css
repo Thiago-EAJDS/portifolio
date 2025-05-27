@@ -9,6 +9,7 @@ body {
     overflow-x: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #f0f0f0;
+    overflow: hidden;
 }
 
 .container {
