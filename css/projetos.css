@@ -79,19 +79,16 @@
         .status-completed {
             background: rgba(40, 167, 69, 0.2);
             color: #28a745;
-            margin-left: 15rem
         }
 
         .status-development {
             background: rgba(255, 193, 7, 0.2);
             color: #ffc107;
-            margin-left: 15rem;
         }
 
         .status-planning {
             background: rgba(108, 117, 125, 0.2);
             color: #6c757d;
-            margin-left: 15rem
         }
 
         .project-description {
