@@ -66,6 +66,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            white-space: nowrap;
         }
 
         .project-status {
@@ -84,7 +85,7 @@
         .status-development {
             background: rgba(255, 193, 7, 0.2);
             color: #ffc107;
-            margin-left: 15rem
+            margin-left: 15rem;
         }
 
         .status-planning {
@@ -139,6 +140,7 @@
             border: 1px solid rgba(63, 0, 104, 0.3);
             transition: all 0.3s ease;
             font-size: 0.9rem;
+            margin-top: 1rem;
         }
 
         .project-link:hover {
