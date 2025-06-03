@@ -168,7 +168,6 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Estatísticas */
 .tech-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -211,7 +210,6 @@
     font-weight: 500;
 }
 
-/* Seção de aprendizado */
 .learning-section {
     margin-top: 4rem;
 }
@@ -313,7 +311,6 @@
     transition: width 1s ease-in-out;
 }
 
-/* Animações de filtro */
 .tech-card.hidden {
     opacity: 0;
     transform: translateY(30px) scale(0.8);
@@ -326,7 +323,6 @@
     pointer-events: all;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .filter-tabs {
         gap: 0.5rem;

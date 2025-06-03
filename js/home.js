@@ -32,7 +32,6 @@ function addSocialIconsListeners() {
     const socialIcons = document.querySelectorAll('.icon');
     
     socialIcons.forEach(icon => {
-        // Efeito de hover personalizado
         icon.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.2) rotate(5deg)';
         });

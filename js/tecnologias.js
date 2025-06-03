@@ -42,7 +42,6 @@ function initTechFilter() {
 function initTechCards() {
     const techCards = document.querySelectorAll('.tech-card');
     
-    // Adiciona efeito de hover personalizado
     techCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px) scale(1.02)';
