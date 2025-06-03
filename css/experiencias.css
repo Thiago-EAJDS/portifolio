@@ -232,7 +232,7 @@
     line-height: 1.4;
 }
 
-/* Responsividade */
+/* n ao ta funcioando direito ainda */
 @media (max-width: 768px) {
     .experiences-timeline {
         padding-left: 0;

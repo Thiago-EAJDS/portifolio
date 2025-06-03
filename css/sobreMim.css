@@ -143,6 +143,7 @@
             box-shadow: 0 5px 15px rgba(63, 0, 104, 0.3);
         }
 
+        /* n ao ta funcioando direito ainda */
         @media (max-width: 768px) {
             .about-content {
                 grid-template-columns: 1fr;

@@ -87,6 +87,8 @@ body {
     animation: fadeIn 0.8s ease-out;
 }
 
+/* n ao ta funcioando direito ainda */
+
 @media (max-width: 768px) {
     .nav {
         right: 10px;

@@ -202,6 +202,7 @@
             width: 15px;
         }
 
+        /* n ao ta funcioando direito ainda */
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;

@@ -323,6 +323,8 @@
     pointer-events: all;
 }
 
+
+/* n ao ta funcioando direito ainda */
 @media (max-width: 768px) {
     .filter-tabs {
         gap: 0.5rem;
