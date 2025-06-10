@@ -214,32 +214,6 @@ style.textContent = `
 document.head.appendChild(style);
 
 //nao é pra ta funcionadno
-function filterByLevel() {
-    const techCards = document.querySelectorAll('.tech-card');
-    
-    const levelFilters = {
-        'expert': 90,
-        'advanced': 70,
-        'intermediate': 50,
-        'beginner': 0
-    };
-    
-    window.filterBySkillLevel = function(minLevel) {
-        techCards.forEach((card, index) => {
-            const cardLevel = parseInt(card.getAttribute('data-level'));
-            
-            if (cardLevel >= minLevel) {
-                setTimeout(() => {
-                    card.classList.remove('hidden');
-                    card.classList.add('visible');
-                }, index * 100);
-            } else {
-                card.classList.add('hidden');
-                card.classList.remove('visible');
-            }
-        });
-    };
-}
 
 function initSearch() {
     const searchInput = document.createElement('input');
