@@ -1,4 +1,3 @@
-
 .filter-tabs {
     display: flex;
     justify-content: center;
@@ -33,10 +32,13 @@
     box-shadow: 0 5px 20px rgba(63, 0, 104, 0.4);
 }
 
+/* Layout do grid de tecnologias - atualizado para melhor responsividade */
 .tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin-bottom: 4rem;
 }
 
@@ -46,11 +48,14 @@
     border-radius: 16px;
     padding: 2rem;
     backdrop-filter: blur(15px);
-    transition: all 0.4s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     position: relative;
     overflow: hidden;
+    /* Novo layout flexível */
+    flex: 0 1 calc(33.333% - 1rem);
+    min-width: 280px;
 }
 
 .tech-card::before {
@@ -72,6 +77,11 @@
 .tech-card.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+    display: block;
+}
+
+.tech-card.hidden {
+    display: none;
 }
 
 .tech-card:hover {
@@ -311,20 +321,7 @@
     transition: width 1s ease-in-out;
 }
 
-.tech-card.hidden {
-    opacity: 0;
-    transform: translateY(30px) scale(0.8);
-    pointer-events: none;
-}
-
-.tech-card.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: all;
-}
-
-
-/* n ao ta funcioando direito ainda */
+/* Media queries atualizadas com melhor responsividade */
 @media (max-width: 768px) {
     .filter-tabs {
         gap: 0.5rem;
@@ -337,12 +334,13 @@
     }
     
     .tech-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
     
     .tech-card {
         padding: 1.5rem;
+        flex: 0 1 calc(50% - 0.5rem);
+        min-width: 250px;
     }
     
     .tech-icon {
@@ -380,6 +378,11 @@
     .filter-tabs {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .tech-card {
+        flex: 0 1 100%;
+        min-width: unset;
     }
     
     .tech-stats {

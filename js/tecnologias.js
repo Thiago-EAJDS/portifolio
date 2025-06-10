@@ -10,30 +10,62 @@ document.addEventListener('DOMContentLoaded', function() {
 function initTechFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const techCards = document.querySelectorAll('.tech-card');
+    const techContainer = document.querySelector('.tech-grid'); // ou o container dos cards
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-
+            // Remove active de todos os botões
             filterBtns.forEach(b => b.classList.remove('active'));
-
+            // Adiciona active no botão clicado
             this.classList.add('active');
             
             const filter = this.getAttribute('data-filter');
-           
-
-            techCards.forEach((card, index) => {
-                const category = card.getAttribute('data-category');
-               
-                if (filter === 'all' || category === filter) {
-                    setTimeout(() => {
+            
+            // Primeiro, esconde todos os cards com animação suave
+            techCards.forEach(card => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+            });
+            
+            // Depois de um delay, reorganiza e mostra os cards filtrados
+            setTimeout(() => {
+                const visibleCards = [];
+                const hiddenCards = [];
+                
+                techCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        visibleCards.push(card);
                         card.classList.remove('hidden');
                         card.classList.add('visible');
+                        card.style.display = 'block'; // Garante que está visível
+                    } else {
+                        hiddenCards.push(card);
+                        card.classList.add('hidden');
+                        card.classList.remove('visible');
+                        card.style.display = 'none'; // Remove do layout
+                    }
+                });
+                
+                // Anima os cards visíveis aparecendo em sequência
+                visibleCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
                     }, index * 100);
-                } else {
-                    card.classList.add('hidden');
-                    card.classList.remove('visible');
+                });
+                
+                // Força o reflow do layout
+                if (techContainer) {
+                    techContainer.style.display = 'flex';
+                    techContainer.style.flexWrap = 'wrap';
+                    techContainer.style.gap = '1.5rem';
+                    techContainer.style.justifyContent = 'flex-start';
                 }
-            });
+                
+            }, 300);
         });
     });
 }
@@ -213,8 +245,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-//nao é pra ta funcionadno
-
 function initSearch() {
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
@@ -270,16 +300,38 @@ function initSearch() {
 function resetFilters() {
     const techCards = document.querySelectorAll('.tech-card');
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.querySelector('.tech-search');
     
+    // Reset dos filtros
     filterBtns.forEach(btn => btn.classList.remove('active'));
     document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
     
-    techCards.forEach((card, index) => {
-        setTimeout(() => {
+    // Reset da busca
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    // Primeiro esconde todos
+    techCards.forEach(card => {
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.8)';
+    });
+    
+    // Depois mostra todos organizadamente
+    setTimeout(() => {
+        techCards.forEach(card => {
             card.classList.remove('hidden');
             card.classList.add('visible');
-        }, index * 50);
-    });
+            card.style.display = 'block';
+        });
+        
+        techCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            }, index * 50);
+        });
+    }, 300);
 }
-
 window.resetTechFilters = resetFilters;
