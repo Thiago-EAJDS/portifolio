@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initTechFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const techCards = document.querySelectorAll('.tech-card');
-    const techContainer = document.querySelector('.tech-grid'); // ou o container dos cards
+    const techContainer = document.querySelector('.tech-grid'); 
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
