@@ -14,21 +14,17 @@ function initTechFilter() {
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Remove active de todos os botões
             filterBtns.forEach(b => b.classList.remove('active'));
-            // Adiciona active no botão clicado
             this.classList.add('active');
             
             const filter = this.getAttribute('data-filter');
             
-            // Primeiro, esconde todos os cards com animação suave
             techCards.forEach(card => {
                 card.style.transition = 'all 0.3s ease';
                 card.style.opacity = '0';
                 card.style.transform = 'scale(0.8)';
             });
             
-            // Depois de um delay, reorganiza e mostra os cards filtrados
             setTimeout(() => {
                 const visibleCards = [];
                 const hiddenCards = [];
@@ -40,16 +36,15 @@ function initTechFilter() {
                         visibleCards.push(card);
                         card.classList.remove('hidden');
                         card.classList.add('visible');
-                        card.style.display = 'block'; // Garante que está visível
+                        card.style.display = 'block'; 
                     } else {
                         hiddenCards.push(card);
                         card.classList.add('hidden');
                         card.classList.remove('visible');
-                        card.style.display = 'none'; // Remove do layout
+                        card.style.display = 'none'; 
                     }
                 });
                 
-                // Anima os cards visíveis aparecendo em sequência
                 visibleCards.forEach((card, index) => {
                     setTimeout(() => {
                         card.style.opacity = '1';
@@ -57,7 +52,6 @@ function initTechFilter() {
                     }, index * 100);
                 });
                 
-                // Força o reflow do layout
                 if (techContainer) {
                     techContainer.style.display = 'flex';
                     techContainer.style.flexWrap = 'wrap';
