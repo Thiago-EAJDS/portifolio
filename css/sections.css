@@ -598,6 +598,12 @@
   flex-shrink: 0;
 }
 
+.exp-badge.past {
+  background: rgba(239, 68, 68, 0.15); 
+  color: #ef4444;                    
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 .exp-company {
   font-size: 14px;
   color: var(--accent-light);
