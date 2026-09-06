@@ -550,6 +550,11 @@
   flex-shrink: 0;
 }
 
+.exp-dot.past {
+  background: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2) var(--accent-glow); 
+}
+
 .exp-dot.current {
   background: #4ade80;
   box-shadow: 0 0 0 3px rgba(74,222,128,0.25);
