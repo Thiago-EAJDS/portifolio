@@ -40,6 +40,11 @@
   50% { box-shadow: 0 0 18px rgba(74,222,128,0.8); }
 }
 
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.35); }
+}
+
 .home-greeting span {
   font-size: 14px;
   font-weight: 500;
